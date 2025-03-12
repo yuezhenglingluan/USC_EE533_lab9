@@ -26,22 +26,22 @@ module RF
         case(thread)
             2'b00: begin  // thread 1
                 if (rst == 1) begin
-                    for (i = 0; i < 8; i = i + 1) RF[i] <= 64'b0;
+                    for (i = 0; i < 8; i = i + 1) RF1[i] <= 64'b0;
                 end else if (wena == 1) RF1[waddr] <= wdata;
             end
             2'b01: begin  // thread 2
                 if (rst == 1) begin
-                    for (i = 0; i < 8; i = i + 1) RF[i] <= 64'b0;
+                    for (i = 0; i < 8; i = i + 1) RF2[i] <= 64'b0;
                 end else if (wena == 1) RF2[waddr] <= wdata;
             end
             2'b01: begin  // thread 3
                 if (rst == 1) begin
-                    for (i = 0; i < 8; i = i + 1) RF[i] <= 64'b0;
+                    for (i = 0; i < 8; i = i + 1) RF3[i] <= 64'b0;
                 end else if (wena == 1) RF3[waddr] <= wdata;
             end
             2'b11: begin  // thread 4
                 if (rst == 1) begin
-                    for (i = 0; i < 8; i = i + 1) RF[i] <= 64'b0;
+                    for (i = 0; i < 8; i = i + 1) RF4[i] <= 64'b0;
                 end else if (wena == 1) RF4[waddr] <= wdata;
             end
         endcase
