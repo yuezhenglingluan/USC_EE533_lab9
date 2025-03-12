@@ -52,7 +52,7 @@ module RF_tb;
         .thread(thread)
 	);
 
-	always #50 clk = ~clk;
+	always #10 clk = ~clk;
 
 	initial begin
 		// Initialize Inputs
@@ -63,9 +63,16 @@ module RF_tb;
 		waddr = 0;
 		r0addr = 0;
 		r1addr = 0;
-
-		// Wait 100 ns for global reset to finish
-		#100;
+        
+		// Wait 20 ns for global reset to finish on all 4 RF
+        thread = 2'b00;
+        #20;
+        thread = 2'b01;
+        #20;
+        thread = 2'b10;
+        #20;
+        thread = 2'b11;
+		#20;
 		rst = 0;
         
 		// Add stimulus here
@@ -75,7 +82,39 @@ module RF_tb;
         wdata = 64'd17;
         r0addr = 3'b000;
         r1addr = 3'b001;
-        #100;
+        #20;
+
+        thread = 2'b01;
+        wena = 1;
+        waddr = 3'd1;
+        wdata = 64'd17;
+        r0addr = 3'b000;
+        r1addr = 3'b001;
+        #20;
+
+        thread = 2'b10;
+        wena = 1;
+        waddr = 3'd1;
+        wdata = 64'd17;
+        r0addr = 3'b000;
+        r1addr = 3'b001;
+        #20;
+
+        thread = 2'b11;
+        wena = 1;
+        waddr = 3'd1;
+        wdata = 64'd17;
+        r0addr = 3'b000;
+        r1addr = 3'b001;
+        #20;
+
+        thread = 2'b00;
+        wena = 1;
+        waddr = 3'd2;
+        wdata = 64'd85;
+        r0addr = 3'd1;
+        r1addr = 3'd1;
+        #20;
 
         thread = 2'b01;
         wena = 1;
@@ -83,7 +122,39 @@ module RF_tb;
         wdata = 64'd85;
         r0addr = 3'd1;
         r1addr = 3'd1;
-        #100;
+        #20;
+
+        thread = 2'b10;
+        wena = 1;
+        waddr = 3'd2;
+        wdata = 64'd85;
+        r0addr = 3'd1;
+        r1addr = 3'd1;
+        #20;
+
+        thread = 2'b11;
+        wena = 1;
+        waddr = 3'd2;
+        wdata = 64'd85;
+        r0addr = 3'd1;
+        r1addr = 3'd1;
+        #20;
+
+        thread = 2'b00;
+        wena = 0;
+        waddr = 3'd2;
+        wdata = 64'd17;
+        r0addr = 3'd2;
+        r1addr = 3'd3;
+        #20;
+
+        thread = 2'b01;
+        wena = 0;
+        waddr = 3'd2;
+        wdata = 64'd17;
+        r0addr = 3'd2;
+        r1addr = 3'd3;
+        #20;
 
         thread = 2'b10;
         wena = 0;
@@ -91,7 +162,39 @@ module RF_tb;
         wdata = 64'd17;
         r0addr = 3'd2;
         r1addr = 3'd3;
-        #100;
+        #20;
+
+        thread = 2'b11;
+        wena = 0;
+        waddr = 3'd2;
+        wdata = 64'd17;
+        r0addr = 3'd2;
+        r1addr = 3'd3;
+        #20;
+
+        thread = 2'b00;
+        wena = 1;
+        waddr = 3'd3;
+        wdata = 64'd17;
+        r0addr = 3'd0;
+        r1addr = 3'd2;
+        #20;
+
+        thread = 2'b01;
+        wena = 1;
+        waddr = 3'd3;
+        wdata = 64'd17;
+        r0addr = 3'd0;
+        r1addr = 3'd2;
+        #20;
+
+        thread = 2'b10;
+        wena = 1;
+        waddr = 3'd3;
+        wdata = 64'd17;
+        r0addr = 3'd0;
+        r1addr = 3'd2;
+        #20;
 
         thread = 2'b11;
         wena = 1;
@@ -99,7 +202,7 @@ module RF_tb;
         wdata = 64'd17;
         r0addr = 3'd0;
         r1addr = 3'd2;
-        #100;
+        #20;
 
         thread = 2'b00;
         wena = 1;
@@ -107,7 +210,39 @@ module RF_tb;
         wdata = 64'd7;
         r0addr = 3'd2;
         r1addr = 3'd3;
-        #100;
+        #20;
+
+        thread = 2'b01;
+        wena = 1;
+        waddr = 3'd4;
+        wdata = 64'd7;
+        r0addr = 3'd2;
+        r1addr = 3'd3;
+        #20;
+
+        thread = 2'b10;
+        wena = 1;
+        waddr = 3'd4;
+        wdata = 64'd7;
+        r0addr = 3'd2;
+        r1addr = 3'd3;
+        #20;
+
+        thread = 2'b11;
+        wena = 1;
+        waddr = 3'd4;
+        wdata = 64'd7;
+        r0addr = 3'd2;
+        r1addr = 3'd3;
+        #20;
+
+        thread = 2'b00;
+        wena = 1;
+        waddr = 3'd5;
+        wdata = 64'd14;
+        r0addr = 3'd4;
+        r1addr = 3'd3;
+        #20;
 
         thread = 2'b01;
         wena = 1;
@@ -115,7 +250,39 @@ module RF_tb;
         wdata = 64'd14;
         r0addr = 3'd4;
         r1addr = 3'd3;
-        #100;
+        #20;
+
+        thread = 2'b10;
+        wena = 1;
+        waddr = 3'd5;
+        wdata = 64'd14;
+        r0addr = 3'd4;
+        r1addr = 3'd3;
+        #20;
+
+        thread = 2'b11;
+        wena = 1;
+        waddr = 3'd5;
+        wdata = 64'd14;
+        r0addr = 3'd4;
+        r1addr = 3'd3;
+        #20;
+
+        thread = 2'b00;
+        wena = 1;
+        waddr = 3'd6;
+        wdata = 64'd9;
+        r0addr = 3'd1;
+        r1addr = 3'd4;
+        #20;
+
+        thread = 2'b01;
+        wena = 1;
+        waddr = 3'd6;
+        wdata = 64'd9;
+        r0addr = 3'd1;
+        r1addr = 3'd4;
+        #20;
 
         thread = 2'b10;
         wena = 1;
@@ -123,7 +290,39 @@ module RF_tb;
         wdata = 64'd9;
         r0addr = 3'd1;
         r1addr = 3'd4;
-        #100;
+        #20;
+
+        thread = 2'b11;
+        wena = 1;
+        waddr = 3'd6;
+        wdata = 64'd9;
+        r0addr = 3'd1;
+        r1addr = 3'd4;
+        #20;
+
+        thread = 2'b00;
+        wena = 1;
+        waddr = 3'd7;
+        wdata = 64'd31;
+        r0addr = 3'd5;
+        r1addr = 3'd6;
+        #20;
+
+        thread = 2'b01;
+        wena = 1;
+        waddr = 3'd7;
+        wdata = 64'd31;
+        r0addr = 3'd5;
+        r1addr = 3'd6;
+        #20;
+
+        thread = 2'b10;
+        wena = 1;
+        waddr = 3'd7;
+        wdata = 64'd31;
+        r0addr = 3'd5;
+        r1addr = 3'd6;
+        #20;
 
         thread = 2'b11;
         wena = 1;
@@ -131,7 +330,7 @@ module RF_tb;
         wdata = 64'd31;
         r0addr = 3'd5;
         r1addr = 3'd6;
-        #100;
+        #20;
 
         $stop;
 	end
