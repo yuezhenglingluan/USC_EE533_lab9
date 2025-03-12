@@ -502,3 +502,17 @@ endmodule
 #### 1.2.3 Testbench Result
 
 ![Register File Testbench Result](Pic/RF_Testbench_Result.png)
+
+### 1.3 Program Counter
+
+Adding multithread support for the program counter.
+
+#### 1.3.1 Program Counter Verilog File
+
+````
+````
+
+#### 1.3.2 Program Counter Testbench
+
+````
+````
