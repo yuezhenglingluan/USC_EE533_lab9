@@ -1,10 +1,83 @@
 # EE533 Lab9 Report
 ## 1. Multi Thread Support
-### 1.1 Register File
+
+### 1.1 Thread Controller
+
+The thread controller is responsible for thread switching
+
+#### 1.1.1 Thread Controller Verilog File
+
+````
+`timescale 1ns / 1ps
+
+module Thread_Controller
+(
+    input clk,
+    input rst,
+    input enable,
+
+    output reg [1:0] thread
+);
+    always @(posedge clk) begin
+        if(rst && enable) thread = 0;
+        else if(enable) thread = thread + 1'b1;
+    end
+endmodule
+````
+
+#### 1.1.2 Thread Controller Testbench
+
+````
+`timescale 1ns / 1ps
+
+module Thread_Controller_tb();
+    reg clk;
+    reg rst;
+    reg enable;
+
+    wire [1:0] thread;
+
+    Thread_Controller uut (
+        .clk(clk),
+        .rst(rst),
+        .enable(enable),
+
+        .thread(thread)
+    );
+
+    always #10 clk = ~clk;
+
+    initial begin
+        #0  rst = 1; enable = 1; clk = 0;  // initial reset
+        #20 rst = 0; 
+        #20;
+        #20;
+        #20;
+        #20;
+        #20;
+        #20 enable = 0;
+        #20 rst = 1;
+        #20;
+        #20;
+        #20 rst = 0; enable = 1;
+        #20;
+        #20;
+        #20;
+        #20 rst = 1;
+        #20 $stop;
+    end
+endmodule
+````
+
+#### 1.1.3 Testbench Result
+
+![Thread Controller Testbench Result](Pic/Thread_Controller_Testbench_Result.png)
+
+### 1.2 Register File
 
 Adding multithread support for the register file.
 
-#### 1.1.1 Register File Verilog File
+#### 1.2.1 Register File Verilog File
 
 ````
 `timescale 1ns / 1ps
@@ -83,7 +156,7 @@ module RF
 endmodule
 ````
 
-#### 1.1.2 Register File TestBench
+#### 1.2.2 Register File TestBench
 
 ````
 `timescale 1ns / 1ps
@@ -426,6 +499,6 @@ module RF_tb;
 endmodule
 ````
 
-#### 1.1.3 Testbench Result
+#### 1.2.3 Testbench Result
 
 ![Register File Testbench Result](Pic/RF_Testbench_Result.png)
