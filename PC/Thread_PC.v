@@ -11,23 +11,23 @@ module Thread_PC(
     output reg [63:0] PC_out
 );
 
-    reg [63:0] PC1, PC2, PC3, PC4;
+    wire [63:0] PC_1, PC_2, PC_3, PC_4;
     reg PC_ctrl_1, PC_ctrl_2, PC_ctrl_3, PC_ctrl_4;
     reg [63:0] BTA1, BTA2, BTA3, BTA4;
-    reg [63:0] PC_next_1, PC_next_2, PC_next_3, PC_next_4;
-    reg [63:0] PC_next_to_mux_1, PC_next_to_mux_2, PC_next_to_mux_3, PC_next_to_mux_4;
+    wire [63:0] PC_next_1, PC_next_2, PC_next_3, PC_next_4;
+    wire [63:0] PC_next_to_mux_1, PC_next_to_mux_2, PC_next_to_mux_3, PC_next_to_mux_4;
     reg Counter_Enable_1, Counter_Enable_2, Counter_Enable_3, Counter_Enable_4;
     reg rst_1, rst_2, rst_3, rst_4;
 
-    PC PC1(.clk(clk),.rst(rst),.PC_next(PC_next_1),.PC(PC1));
-    PC PC2(.clk(clk),.rst(rst),.PC_next(PC_next_2),.PC(PC2));
-    PC PC3(.clk(clk),.rst(rst),.PC_next(PC_next_3),.PC(PC3));
-    PC PC4(.clk(clk),.rst(rst),.PC_next(PC_next_4),.PC(PC4));
+    PC PC1(.clk(clk),.rst(rst),.PC_next(PC_next_1),.PC(PC_1));
+    PC PC2(.clk(clk),.rst(rst),.PC_next(PC_next_2),.PC(PC_2));
+    PC PC3(.clk(clk),.rst(rst),.PC_next(PC_next_3),.PC(PC_3));
+    PC PC4(.clk(clk),.rst(rst),.PC_next(PC_next_4),.PC(PC_4));
 
-    PC_plus_1 PC_plus_1_1(.PC(PC1), .enable(Counter_Enable_1), .PC_next(PC_next_to_mux_1));
-    PC_plus_1 PC_plus_1_2(.PC(PC2), .enable(Counter_Enable_2), .PC_next(PC_next_to_mux_2));
-    PC_plus_1 PC_plus_1_3(.PC(PC3), .enable(Counter_Enable_3), .PC_next(PC_next_to_mux_3));
-    PC_plus_1 PC_plus_1_4(.PC(PC4), .enable(Counter_Enable_4), .PC_next(PC_next_to_mux_4));
+    PC_plus_1 PC_plus_1_1(.PC(PC_1), .enable(Counter_Enable_1), .PC_next(PC_next_to_mux_1));
+    PC_plus_1 PC_plus_1_2(.PC(PC_2), .enable(Counter_Enable_2), .PC_next(PC_next_to_mux_2));
+    PC_plus_1 PC_plus_1_3(.PC(PC_3), .enable(Counter_Enable_3), .PC_next(PC_next_to_mux_3));
+    PC_plus_1 PC_plus_1_4(.PC(PC_4), .enable(Counter_Enable_4), .PC_next(PC_next_to_mux_4));
 
     PC_MUX PC_MUX_1 (.BTA(BTA1), .PC_ctrl(PC_ctrl_1), .PC_next_in(PC_next_to_mux_1), .PC_next_out(PC_next_1));
     PC_MUX PC_MUX_2 (.BTA(BTA2), .PC_ctrl(PC_ctrl_2), .PC_next_in(PC_next_to_mux_2), .PC_next_out(PC_next_2));
@@ -75,7 +75,7 @@ module Thread_PC(
 
                 case(thread)
                     2'b00: begin
-                        PC_out = PC1;
+                        PC_out = PC_1;
                         PC_ctrl_4 = PC_ctrl_in;  // Control signal is given by Branch Decision Unit in ID stage, hence it is one cycle behind
                         BTA4 = BTA_in;  // BTA_in is given by Offset Extend Unit in ID stage, hence it is one cycle behind
 
@@ -86,7 +86,7 @@ module Thread_PC(
                 
                     end
                     2'b01: begin
-                        PC_out = PC2;
+                        PC_out = PC_2;
                         PC_ctrl_1 = PC_ctrl_in;  // Control signal is given by Branch Decision Unit in ID stage, hence it is one cycle behind
                         BTA1 = BTA_in;  // BTA_in is given by Offset Extend Unit in ID stage, hence it is one cycle behind
 
@@ -96,7 +96,7 @@ module Thread_PC(
                         Counter_Enable_4 = 1'b0;
                     end
                     2'b10: begin
-                        PC_out = PC3;
+                        PC_out = PC_3;
                         PC_ctrl_2 = PC_ctrl_in;  // Control signal is given by Branch Decision Unit in ID stage, hence it is one cycle behind
                         BTA2 = BTA_in;  // BTA_in is given by Offset Extend Unit in ID stage, hence it is one cycle behind
 
@@ -106,7 +106,7 @@ module Thread_PC(
                         Counter_Enable_4 = 1'b0;
                     end
                     2'b11: begin
-                        PC_out = PC4;
+                        PC_out = PC_4;
                         PC_ctrl_3 = PC_ctrl_in;  // Control signal is given by Branch Decision Unit in ID stage, hence it is one cycle behind
                         BTA3 = BTA_in;  // BTA_in is given by Offset Extend Unit in ID stage, hence it is one cycle behind
 
