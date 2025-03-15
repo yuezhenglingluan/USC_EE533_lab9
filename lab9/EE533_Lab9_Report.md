@@ -160,7 +160,7 @@
 
   * Waveform
 
-  ![Screenshot 2025-03-13 173455](C:\Users\StepF\Documents\GitHub\ee533\lab 9\Pic\Screenshot 2025-03-13 173455.png)
+  ![Screenshot 2025-03-13 173455](<Pic\Screenshot 2025-03-13 173455.png>)
 
 * PC1
 
@@ -310,7 +310,7 @@
 
   * Waveform
 
-  ![Screenshot 2025-03-13 174232](C:\Users\StepF\Documents\GitHub\ee533\lab 9\Pic\Screenshot 2025-03-13 174232.png)
+  ![Screenshot 2025-03-13 174232](<Pic\Screenshot 2025-03-13 174232.png>)
 
 * PC2
 
@@ -472,7 +472,7 @@
 
   * Waveform
 
-  ![Screenshot 2025-03-13 174849](C:\Users\StepF\Documents\GitHub\ee533\lab 9\Pic\Screenshot 2025-03-13 174849.png)
+  ![Screenshot 2025-03-13 174849](<Pic\Screenshot 2025-03-13 174849.png>)
 
 * PC3
 
@@ -634,7 +634,7 @@
 
   * Waveform
 
-  ![Screenshot 2025-03-13 175048](C:\Users\StepF\Documents\GitHub\ee533\lab 9\Pic\Screenshot 2025-03-13 175048.png)
+  ![Screenshot 2025-03-13 175048](<Pic\Screenshot 2025-03-13 175048.png>)
 
 #### 2.1.2 PC_Thread_MUX
 
@@ -752,7 +752,7 @@ endmodule
 
 * Waveform
 
-![Screenshot 2025-03-13 175922](C:\Users\StepF\Documents\GitHub\ee533\lab 9\Pic\Screenshot 2025-03-13 175922.png)
+![Screenshot 2025-03-13 175922](<Pic\Screenshot 2025-03-13 175922.png>)
 
 #### 2.1.3 RF_DEMUX
 
@@ -890,7 +890,7 @@ endmodule
 
 * Waveform
 
-![Screenshot 2025-03-13 180551](C:\Users\StepF\Documents\GitHub\ee533\lab 9\Pic\Screenshot 2025-03-13 180551.png)
+![Screenshot 2025-03-13 180551](<Pic\Screenshot 2025-03-13 180551.png>)
 
 #### 2.1.4 RF_MUX
 
@@ -1024,7 +1024,7 @@ endmodule
 
 * Waveform
 
-![Screenshot 2025-03-13 181155](C:\Users\StepF\Documents\GitHub\ee533\lab 9\Pic\Screenshot 2025-03-13 181155.png)
+![Screenshot 2025-03-13 181155](<Pic\Screenshot 2025-03-13 181155.png>)
 
 ### 2.2 Other changes summary
 
@@ -1153,11 +1153,11 @@ endmodule
 
 ### 4.2 Packet Header Definition
 
-![Packet_Format](C:\Users\StepF\Documents\GitHub\ee533\lab 9\Pic\Packet_Format.png)
+![Packet_Format](<Pic\Packet_Format.png>)
 
 ### 4.3 Initial Packet
 
-![Packet_Initial](C:\Users\StepF\Documents\GitHub\ee533\lab 9\Pic\Packet_Initial.png)
+![Packet_Initial](Pic\Packet_Initial.png)
 
 * Packet Initialization File / Vector File
 
@@ -1175,7 +1175,7 @@ endmodule
 
 ### 4.4 Packet Expected after Processing
 
-![Packet_after_processing](C:\Users\StepF\Documents\GitHub\ee533\lab 9\Pic\Packet_after_processing.png)
+![Packet_after_processing](Pic\Packet_after_processing.png)
 
 * Packet Initialization File / Vector File
 
