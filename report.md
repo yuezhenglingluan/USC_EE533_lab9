@@ -504,6 +504,9 @@ endmodule
 ![Register File Testbench Result](Pic/RF_Testbench_Result.png)
 
 ### 1.3 Program Counter
+
+#### 1.3.1 Program Counter Verilog File
+
 module Thread_PC(
     input clk,
     input rst,
@@ -626,11 +629,8 @@ module Thread_PC(
         endcase
     end
 endmodule
-Adding multithread support for the program counter.
 
-#### 1.3.1 Program Counter Verilog File
 
-````
 ````
 
 #### 1.3.2 Program Counter Testbench
